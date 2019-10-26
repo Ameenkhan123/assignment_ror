@@ -18,7 +18,7 @@
       </td>
       <td>
         <%= link_to  "#", { "data-toggle" => "modal", :class => "model-update-id", "data-id" => employee.id} do %>
-          Update Employee Records
+          Edit
         <% end %>
         /
         <%= link_to  "Delete", employee_path(employee), method: :delete, data: {confirm: "Are you sure? delete the Employee"} %>
