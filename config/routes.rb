@@ -4,4 +4,13 @@ Rails.application.routes.draw do
     sessions: 'managers/sessions',
     registrations: 'managers/registrations'
   }
+
+  # Custom Routes
+  get "home", to: "welcome#home"
+
+  # Root path
+  root "welcome#home"
+
+  # Error handle for wrong routes
+  get '*path' => redirect { |p, req| req.flash["error"] = "Please enter correct URL!"; "/" }
 end
