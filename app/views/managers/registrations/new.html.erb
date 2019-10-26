@@ -1,54 +1,52 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :firs_tname %><br />
-    <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname" %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Sign Up</h5>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="form-label-group">
+              <%= f.text_field :firstname, id: "inputfirstname", class: "form-control", placeholder: "First Name" %>
+              <label for="inputfirstname">First Name</label>
+            </div>
+            <div class="form-label-group">
+              <%= f.text_field :lastname, id: "inputlastname", class: "form-control", placeholder: "Last Name" %>
+              <label for="inputlastname">Last Name</label>
+            </div>
+            <div class="form-label-group">
+              <%= f.email_field :email, id: "inputemail", class: "form-control", placeholder: "Email" %>
+              <label for="inputemail">Email</label>
+            </div>
+            <div class="form-label-group">
+              <%= f.text_field :address, id: "inputaddress", class: "form-control", placeholder: "Address" %>
+              <label for="inputaddress">Address</label>
+            </div>
+            <div class="form-label-group">
+              <%= f.date_field :dob, id: "inputdob", class: "form-control", placeholder: "Date Of Birth" %>
+              <label for="inputdob">Date Of Birth</label>
+            </div>
+            <div class="form-label-group">
+              <%= f.text_field :company, id: "inputcompany", class: "form-control", placeholder: "Company" %>
+              <label for="inputcompany">Company</label>
+            </div>
+            <div class="form-label-group">
+              <%= f.password_field :password, autocomplete: "current-password", id: "inputPassword", class: "form-control", placeholder: "Password" %>
+              <label for="inputPassword">Password</label>
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+            </div>
+            <div class="form-label-group">
+              <%= f.password_field :password_confirmation, id: "inputpassword_confirmation", class: "form-control", placeholder: "password confirmation" %>
+              <label for="inputpassword_confirmation">password Confirmation</label>
+            </div>
+            <%= f.submit "Sign in", class: "btn btn-lg btn-primary btn-block text-uppercase" %>
+            <hr class="my-4">
+            <%= render "managers/shared/links" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :dob %><br />
-    <%= f.date_field :dob, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :company %><br />
-    <%= f.text_field :company, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "managers/shared/links" %>
+</div>
