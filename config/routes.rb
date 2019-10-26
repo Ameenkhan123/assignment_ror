@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     registrations: 'managers/registrations'
   }
 
+  # Employees Routes
+  resources :employees
+
   # Custom Routes
   get "home", to: "welcome#home"
 

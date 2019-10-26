@@ -1,0 +1,93 @@
+<div class="modal fade" id="employee_edit_modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Employee</h4>
+        <a href="#" data-dismiss="modal">x</a>
+      </div>
+      <%= form_for Employee.new, url: employee_path(employee), method: :patch, remote: true do |f| %>
+        <div class="modal-body">
+          <div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <p>
+                  First Name :
+                </p>
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <p>
+                  <%= f.text_field :firstname, value: employee.firstname, class: 'form-control' %>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <p>
+                  Last Name :
+                </p>
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <p>
+                  <%= f.text_field :lastname, value: employee.lastname, class: 'form-control' %>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <p>
+                  Address :
+                </p>
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <p>
+                  <%= f.text_field :address, value: employee.address, class: 'form-control' %>
+                </p>
+              </div>
+            </div>
+            <div class="row ">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <p>
+                  City :
+                </p>
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <p>
+                  <%= f.text_field :city, value: employee.city, class: 'form-control' %>
+                </p>
+              </div>
+            </div>
+            <div class="row ">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <p>
+                  BOD :
+                </p>
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <p>
+                  <%= f.date_field :dob, value: employee.city, class: 'form-control' %>
+                </p>
+              </div>
+            </div>
+            <div class="row ">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <p>
+                  Mobile :
+                </p>
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                <p>
+                  <%= f.telephone_field :mobile, value: employee.mobile, class: 'form-control' %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "submit", class: "btn btn-primary" , data: {confirm: "Are you sure? update the Employee"} %>
+            <a href="#" data-dismiss="modal" class="btn btn-warning">Cancel</a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

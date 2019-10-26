@@ -1,0 +1,4 @@
+$(".employee_edit_modal").html("<%= j render(partial: 'employees/edit_model', locals: { employee: @employee }) %>");
+$('#employee_edit_modal').modal('show');
+$(".employee_edit_modal").css({ 'display' : 'block'});
+$("div").removeClass("modal-backdrop fade show");

@@ -13,7 +13,7 @@
               <%= link_to('Logout', destroy_manager_session_path, method: :delete, class: "nav-link font-weight-bold mr-3") %>
             </li>
             <li class="nav-link font-weight-bold mr-3">
-              <a href="#">Add The Employee</a>
+              <a href="#"data-toggle="modal" data-target="#myModal">Add The Employee</a>
             </li>
           <% else %>
             <li>
@@ -29,3 +29,50 @@
   </div>
 </nav>
 <hr>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add Employee</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <%= form_for(Employee.new, url: employees_path, method: :post, remote: true) do |f| %>
+        <div class="modal-body">
+          <div class="field">
+            <%= f.label :first_name %>
+            <%= f.text_field :firstname, autofocus: true, class: "form-control  employee_filed" %>
+          </div>
+          <div class="field">
+            <%= f.label :last_name %>
+            <%= f.text_field :lastname, autofocus: true, class: "form-control employee_filed" %>
+          </div>
+          <div class="field">
+            <%= f.label :address %>
+            <%= f.text_field :address, autofocus: true, class: "form-control employee_filed" %>
+          </div>
+          <div class="field">
+            <%= f.label :city %>
+            <%= f.text_field :city, autofocus: true, class: "form-control employee_filed" %>
+          </div>
+          <div class="field">
+            <%= f.label :dob %>
+            <%= f.date_field :dob, autofocus: true, class: "form-control employee_filed" %>
+          </div>
+          <div class="field">
+            <%= f.label :mobile %>
+            <%= f.telephone_field :mobile, autofocus: true, class: "form-control employee_filed" %>
+          </div>
+          <div class="employee_error"></div>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <%= f.submit "submit", class: "btn btn-primary" %>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
